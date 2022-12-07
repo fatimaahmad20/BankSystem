@@ -1,0 +1,39 @@
+﻿@model BankSys.Models.ApplicationUser
+@{
+    ViewBag.Title = "Transfer";
+}
+
+
+<h2>transfer money</h2>
+@using (Html.BeginForm("TransferFunds", "Bank", FormMethod.Post, new { @class = "form-horizantal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>hello you can withdraw money here !</h4>
+    <hr />
+
+    <div class="form-group">
+        <label for="balances" class="col-md-2 control-label"> add the balance:</label>
+
+        <div class="col-md-10">
+
+            <input class="form-control" type="number" id="balance" name="transferAmount" min="1" max="@Model.Balance"><br><br>
+        </div>
+    </div>
+
+
+    <label for="email" class="col-md-2 control-label">account:</label>
+
+    <input class="form-control" type="email"  name="toAccountId"/>
+    <input class="form-control" type="hidden"  name="fromAccountId" value="@Model.Email"/>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-block bg-primary">
+        </div>
+    </div>
+
+
+
+
+}

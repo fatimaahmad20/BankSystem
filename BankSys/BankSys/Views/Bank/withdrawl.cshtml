@@ -1,0 +1,33 @@
+﻿@model BankSys.Models.ApplicationUser
+@{
+    ViewBag.Title = "withdrawl";
+}
+
+
+<h2>Withdraw</h2>
+@using (Html.BeginForm("ConfirmWithdrawl", "bank", FormMethod.Post, new { @class = "form-horizantal", role = "form" }))
+{
+
+    @Html.AntiForgeryToken()
+    <h4>hello you can withdraw money here !</h4>
+    <hr />
+
+    <div class="form-group">
+        <label for="balances" class="col-md-2 control-label"> with draw your balance:</label>
+
+        <div class="col-md-10">
+
+            <input class="form-control" type="number" id="balance" name="withdrawlAmount" min="1" max="@Model.Balance"><br><br>
+        </div>
+    </div>
+
+    <input type="hidden" value="@Model.Id" name="Id" />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-block bg-primary">
+        </div>
+    </div>
+
+}
+      }
+

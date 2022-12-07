@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BankSys.Models.Detials>
+
+@if (Model.Count() == 0)
+{
+    <p> there are on activaties </p>
+}
+else
+{
+
+
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <td>action type</td>
+                <td>amount</td>
+                <th>date</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.action </td>
+                    <td>@item.amount  </td>
+                    <td>@item.date.ToLongDateString()</td>
+
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
